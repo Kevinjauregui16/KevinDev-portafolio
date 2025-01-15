@@ -2,6 +2,8 @@ import { TfiLocationPin } from "react-icons/tfi";
 import { TbBrandGithub } from "react-icons/tb";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { IoDocumentTextOutline, IoMailOutline } from "react-icons/io5";
+import ButtonLink from "./ui/ButtonLink";
+import "animate.css";
 
 export default function Header({ isDark }) {
   return (
@@ -17,50 +19,26 @@ export default function Header({ isDark }) {
           alt="Perfil"
         />
       </div>
-      <div className="space-y-1 text-center md:text-left">
-        <h1 className="text-3xl md:text-4xl font-bold">
+      <div className="md:space-y-1 text-center md:text-left">
+        <h1 className="animate__animated animate__rubberBand text-3xl md:text-4xl font-bold">
           Kevin Jauregui Garcia
         </h1>
-        <h2 className="text-xl md:text-2xl font-semibold">
+        <h2 className="animate__animated animate__bounceInDown text-xl md:text-2xl font-semibold">
           Software Developer Jr
         </h2>
         <p className="flex justify-center md:justify-start">
           <TfiLocationPin className="text-xl my-auto" />
-          Guadalajara, Mexico
+          Guadalajara, Mexico.
         </p>
         <div
-          className={`space-x-2 m-auto ${
+          className={`space-x-2 mt-3 flex ${
             isDark ? "text-secondary" : " text-text"
           }`}
         >
-          <button
-            className={`border-2 ${
-              isDark ? "border-secondary" : "border-text"
-            } w-20 py-1 rounded-2xl transition-all`}
-          >
-            <IoMailOutline className="m-auto bg-transparent text-2xl" />
-          </button>
-          <button
-            className={`border-2 ${
-              isDark ? "border-secondary" : "border-text"
-            } w-20 py-1 rounded-2xl transition-all`}
-          >
-            <IoDocumentTextOutline className="m-auto bg-transparent text-2xl" />
-          </button>
-          <button
-            className={`border-2 ${
-              isDark ? "border-secondary" : "border-text"
-            } w-20 py-1 rounded-2xl transition-all`}
-          >
-            <TbBrandGithub className="m-auto bg-transparent text-2xl" />
-          </button>
-          <button
-            className={`border-2 ${
-              isDark ? "border-secondary" : "border-text"
-            } w-20 py-1 rounded-2xl transition-all`}
-          >
-            <FaLinkedinIn className="m-auto bg-transparent text-2xl" />
-          </button>
+          <ButtonLink isDark={isDark} icon={<IoMailOutline />} />
+          <ButtonLink isDark={isDark} icon={<IoDocumentTextOutline />} />
+          <ButtonLink isDark={isDark} icon={<TbBrandGithub />} />
+          <ButtonLink isDark={isDark} icon={<FaLinkedinIn />} />
         </div>
       </div>
     </div>

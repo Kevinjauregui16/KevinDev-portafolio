@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { GoSun } from "react-icons/go";
 import AboutMe from "./components/AboutMe";
 import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
+import Proyects from "./components/Proyects";
+import Training from "./components/Training";
+import Footer from "./components/Footer";
 
 export default function Page() {
-  const [isDark, setIsDark] = useState(false); //si es false es light si es true es dark
+  const [isDark, setIsDark] = useState(() => {
+    const savedTheme = localStorage.getItem("isDark");
+    return savedTheme ? JSON.parse(savedTheme) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("isDark", JSON.stringify(isDark));
+  }, [isDark]);
 
   return (
     <div
@@ -33,6 +43,9 @@ export default function Page() {
       <AboutMe isDark={isDark} />
       <Technologies isDark={isDark} />
       <Experience isDark={isDark} />
+      <Proyects isDark={isDark} />
+      <Training isDark={isDark} />
+      <Footer isDark={isDark} />
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Technologies({ isDark }) {
       >
         Tecnologías
       </p>
-      <div className="mt-2 flex gap-3">
+      <div className="mt-2 flex flex-wrap gap-3">
         <ItemTec isDark={isDark} icon={<FaHtml5 />} name="Html" />
         <ItemTec isDark={isDark} icon={<FaCss3Alt />} name="Css" />
         <ItemTec isDark={isDark} icon={<FaJs />} name="JavaScript" />
